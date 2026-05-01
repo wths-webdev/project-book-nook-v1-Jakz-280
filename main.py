@@ -25,13 +25,12 @@ print(" / /________.|.________\ \ ")
 print(" \ \--------`-'--------/ / ")
 
 # ask user for input
-'''
-Menu: 
- Add book (add)
- Remove book (remove) 
- Show inventory count (count) 
- Quit (q)
- '''
+
+print("Menu:") 
+print(" Add book (add)")
+print(" Remove book (remove) ")
+print(" Show inventory count (count) ")
+print(" Quit (q)")
 
 # ask user for book
 
