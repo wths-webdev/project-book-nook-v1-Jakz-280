@@ -17,8 +17,8 @@ ask user for input
 # welcome message
 print("Welcome to Book Nook!")
 
-print("       ______ ______      ")
-print("     _/      Y      \_    ")
+print("       ______ ______       ")
+print("     _/      Y      \_     ")
 print("   / / ~Book | ~~ ~  \ \   ")
 print("  / / ~ ~ ~~ |  Nook~ \ \  ")
 print(" / /________.|.________\ \ ")
@@ -31,9 +31,11 @@ print(" Add book (add)")
 print(" Remove book (remove) ")
 print(" Show inventory count (count) ")
 print(" Quit (q)")
+User_input = (input("enter an option: ", ))
 
 # ask user for book
-
+if User_input == "add":
+    Add_book = (input("what book would you like to add?", ))
 
 # add to list
 
