@@ -17,8 +17,6 @@ Removed_list = []
 Library = []
 No_option_attempts = 0
 
-# list of books
-
 
 # welcome message
 print("Welcome to Book Nook!")
@@ -33,25 +31,31 @@ print(" \ \--------`-'--------/ / ")
 while True:
     # ask user for input
     print("Menu:") 
-    print(" get help (help)")
-    print(" Add book to list (add)")
-    print(" Remove book from list (remove) ")
-    print(" Show current inventory count (count) ")
-    print(" Show books in your current inventory (show) ")
-    print(" clear all from inventory (reset) ")
-    print(" Quit program (q)")
-    User_input = (input("enter an option: ", ))
+    print(" type help and hit enter for more info (help)" )
+    print(" Add book (add)" )
+    print(" Remove book (remove) ")
+    print(" Show count (count) ")
+    print(" Show books (show) ")
+    print(" clear all (reset) ")
+    print(" Quit (q)" )
+    User_input = input("enter an option: ")
 
     # inform user (help)
     if User_input == "help":
         print("well to summarize everything: ")
-        print("Basics: simply enter any of the options from the menu with your keyboard to perfor that action")
-        print("Well, everything: the function of each one is displayed next to it")
+        print(" Basics: simply enter any of the options from the menu with your keyboard to perform that action")
+        print(" add: used to add books to the list")
+        print(" remove: used to remove books from the list")
+        print(" count: tells you how many books are in the list")
+        print(" show: shows all current books in the list")
+        print(" reset: this will ask you again for confirmation before removing all books from the list")
+        print(" q: this will end the program")
+        print("this is an early version and a proper library has not been set, so expect it to be a bit odd (but its mostly intact)")
     
     # ask user for book (add)
     if User_input == "add":
         No_option_attempts = 0
-        New_book = (input("what book would you like to add?: ", ))
+        New_book = input("what book would you like to add?: ")
     # add to list
         Book_list.append(New_book)
         print(Book_list)
@@ -61,7 +65,7 @@ while True:
     # remove from list (remove)
     elif User_input == "remove":
         No_option_attempts = 0
-        Remove_book = (input("what book would you like to remove?: ", ))
+        Remove_book = input("what book would you like to remove?: ")
         Book_list.remove(Remove_book)
         Removed_list.append(Remove_book)
     # success message
@@ -85,7 +89,7 @@ while True:
 
     # Clear inventory (reset)
     elif User_input == "reset":
-        Double_check = input("are you sure? this will remove ALL current books in your list (y/n)", )
+        Double_check = input("are you sure? this will remove ALL current books in your list (y/n)")
         if Double_check == "n":
             print("clear has been cancled")
         if Double_check == "y":
@@ -99,23 +103,30 @@ while True:
         print("thats not an option")
         if No_option_attempts >= 5:
             print("still not an option")
-        if No_option_attempts >= 7 and No_option_attempts <= 5:
+        if No_option_attempts >= 7:
             print("thats uh, still not an option")
-        if No_option_attempts >= 9 and No_option_attempts <= 7:
+        if No_option_attempts >= 9:
             print("sir", User_input, "isnt on the menu")
-        if No_option_attempts >= 11 and No_option_attempts <= 9:
+        if No_option_attempts >= 11:
             print("hello?? are you reading this??? thats NOT and option")
-        if No_option_attempts >= 13 and No_option_attempts <= 11:
+        if No_option_attempts >= 13:
             print("THAT ISNT A THING, PICK SOMETHING FROM THE LIST BELOW")
         if No_option_attempts >= 15:
             print("please stop")
 
     # break loop
     if User_input == "q":
-        break
+        Are_you_sure = input("are you sure? (y/n): ")
+        if Are_you_sure == "y":
+            absolutly_positive = input("ok but this will end the program and you'll have to run it again (y/n): ")
+            if absolutly_positive == "y":
+                last_check = input("ok but like, are you ABSOLUTLY sure (y/n): ")
+                if last_check == "y":
+                    print("ok fine :(")
+                    break
 
 # results
-print("   Program ended, total history:")
+print("  Program ended, total history:")
 print("Complete list: ", Book_list)
 print("Removed books: ", Removed_list)
 print("Total amount of books in list: ", len(Book_list))
