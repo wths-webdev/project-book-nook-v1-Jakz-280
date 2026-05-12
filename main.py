@@ -42,7 +42,7 @@ print(" / /________.|.________\ \ ")
 print(" \ \--------`-'--------/ / ")
 
 while True:
-    Flavor_text = random.randint(0, 10)
+    Flavor_text = random.randint(1, 10)
 # ask user for input
     print(" ")
     print("Menu:") 
@@ -112,23 +112,24 @@ while True:
     elif User_input == "remove":
         No_option_attempts = 0
         Remove_book = ((input("what book would you like to remove?: ").lower()).strip())
-        Book_list.remove(Remove_book)
-        Removed_list.append(Remove_book)
+        if Remove_book in Book_list:
+         Book_list.remove(Remove_book)
+         Removed_list.append(Remove_book)
     # success message
-        print(Remove_book, "was removed")
+         print(Remove_book, "was removed")
         if Remove_book not in Book_list:
             print("That book is not in the list or was already removed")
 
     # show amount in list (count)
     elif User_input == "count":
         No_option_attempts = 0
-        print("as of now, you have", Book_list.count, "in your list")
-        if Book_list.count >= 10:
-            print("as of now, you have", Book_list.count, "in your list, thats a lot")
-        if Book_list.count >= 20:
-            print("as of now you have...", Book_list.count, "which is...why do you need that many??")
-        if Book_list.count >= 30:
-            print("ok what could you possibly need", Book_list.count, "books for")
+        print("as of now, you have", len(Book_list), "in your list")
+        if len(Book_list) >= 10:
+            print("as of now, you have", len(Book_list), "in your list, thats a lot")
+        if len(Book_list) >= 20:
+            print("as of now you have...", len(Book_list), "which is...why do you need that many??")
+        if len(Book_list) >= 30:
+            print("ok what could you possibly need", len(Book_list), "books for")
 
 
     # print out list (show)
@@ -137,7 +138,7 @@ while True:
 
     # show library (library)
     elif User_input == "library":
-        print("(all/comedy/horror/fiction/manga)")
+        print("(all/comedy/horror/fiction/manga/info/history)")
         Selected_genre = ((input("what genre do you want to look at?: ").lower()).strip())
         if Selected_genre == "all":
             print("for everything, we currently have: ", Full_library)
@@ -148,8 +149,11 @@ while True:
         if Selected_genre == "fiction":
             print("for fiction, we currently have: ", Fiction_genre)
         if Selected_genre == "manga":
-            print("for for comics, we currently have: ", Manga_genre)
-        
+            print("for manga, we currently have: ", Manga_genre)
+        if Selected_genre == "info":
+            print("for info, we currently have: ", Info_genre)
+        if Selected_genre == "history":
+            print("for for comics, we currently have: ", History_genre)
 
     # Clear inventory (reset)
     elif User_input == "reset":
@@ -194,4 +198,4 @@ while True:
 print("  Program ended, total history:")
 print("Complete list: ", Book_list)
 print("Removed books: ", Removed_list)
-print("Total amount of books in list: ", Book_list.count)
+print("Total amount of books in list: ", len(Book_list))
