@@ -18,31 +18,83 @@ import random
 def words_only():
     (isinstance(User_input, str))
 
-# global variables
-Book_list = []
-Removed_list = []
-Comedy_genre = ["joke book", "the bad guys"]
-Horror_genre = ["five nights at freddys into the pit", "the nightmaries"]
-Fiction_genre = ["wonder woman", "batman court of owls", "fullmetal alchemist", "harry potter and the goblet of fire"]
-Manga_genre = ["my hero academia", "naruto"]
-Info_genre = ["dictonary", "study guide"]
-History_genre = ["world war two", "the pyramids"]
+    # global variables
+# genre's
+Book_list = [
+
+    ] 
+
+Removed_list = [
+
+    ]
+
+Comedy_genre = [
+    "joke book", 
+    "the bad guys",
+    ]
+
+Horror_genre = [
+    "five nights at freddys into the pit", 
+    "the nightmaries",
+    ]
+
+Fiction_genre = [
+    "wonder woman", 
+    "batman court of owls", 
+    "fullmetal alchemist", 
+    "harry potter and the goblet of fire",
+    ]
+
+Manga_genre = [
+    "my hero academia", 
+    "naruto",
+    ]
+
+Info_genre = [
+    "dictonary", 
+    "study guide",
+    ]
+
+History_genre = [
+    "world war two", 
+    "the pyramids",
+    ]
+
 Full_library = Comedy_genre + Horror_genre + Fiction_genre + Manga_genre + Info_genre + History_genre
+
+# detail
 No_option_attempts = 0
+logo_1 = str("       ______ ______        ")
+logo_2 = str("    __/      Y      \__     ")
+logo_3 = str("   / / ~Book | ~~ ~  \ \    ")
+logo_4 = str("  / / ~ ~ ~~ |  Nook~ \ \   ")
+logo_5 = str(" /_/________.|.________\_\  ")
+logo_6 = str(" \ \--------`-'--------/ /  ")
+Flavor_text_list = [
+    "Our library has everything and nothing!", 
+    "Look mom! im a peice of flavor text!", 
+    "All roads lead to books", "Now with more paper!", 
+    "Dont worry user, the library has enough books to feed you for a life time, LIBRARIAN GET ME MORE BOOKS THE KIDS HUNGRY", 
+    "Now without calender errors! i think, does the number count go that high?", 
+    "help me im running out of ideas for flavor text", 
+    "We need money to keep our employees happy", 
+    "books made from the very first tree!", 
+    ]
 
 
 # welcome message
+print(" ")
+print(" ")
 print("Welcome to Book Nook!")
-
-print("       ______ ______       ")
-print("     _/      Y      \_     ")
-print("   / / ~Book | ~~ ~  \ \   ")
-print("  / / ~ ~ ~~ |  Nook~ \ \  ")
-print(" / /________.|.________\ \ ")
-print(" \ \--------`-'--------/ / ")
+print(logo_1)
+print(logo_2)
+print(logo_3)
+print(logo_4)
+print(logo_5)
+print(logo_6)
 
 while True:
-    Flavor_text = random.randint(1, 10)
+    Flavor_text = random.choice(Flavor_text_list)
 # ask user for input
     print(" ")
     print("Menu:") 
@@ -56,28 +108,7 @@ while True:
     print(" Quit (q)" )
     print(" ")
 # flavor text
-    if Flavor_text == 1:
-        print("Our library has everything and nothing!")
-    elif Flavor_text == 2:
-        print("Look mom! im a peice of flavor text!")
-    elif Flavor_text == 3:
-        print("All roads lead to books")
-    elif Flavor_text == 4:
-        print("Now with more paper!")
-    elif Flavor_text == 5:
-        print("Removed herobrian, i think")
-    elif Flavor_text == 6:
-        print("Dont worry user, the library has enough books to feed you for a life time, LIBRARIAN GET ME MORE BOOKS THE KIDS HUNGRY")
-    elif Flavor_text == 7:
-        print("Now without calender errors! i think, does the number count go that high?")
-    elif Flavor_text == 8:
-        print("help me im running out of ideas for flavor text")
-    elif Flavor_text == 9:
-        print("We need money to keep our employees happy")
-    elif Flavor_text == 10:
-        print("books made from the very first tree!")
-    else:
-        print("i think...a bit of flavor text is missing...")
+    print(Flavor_text)
     print(" ")
     User_input = ((input("enter an option: ").lower()).strip())
 
