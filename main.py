@@ -29,7 +29,7 @@ Removed_list = [
     ]
 
 Comedy_genre = [
-    "joke book", 
+    "dog man", 
     "the bad guys",
     ]
 
@@ -41,7 +41,7 @@ Horror_genre = [
 Fiction_genre = [
     "wonder woman", 
     "batman court of owls", 
-    "fullmetal alchemist", 
+    "gullmetal alchemist", 
     "harry potter and the goblet of fire",
     ]
 
@@ -50,17 +50,16 @@ Manga_genre = [
     "naruto",
     ]
 
-Info_genre = [
-    "dictonary", 
-    "study guide",
-    ]
-
 History_genre = [
     "world war two", 
     "the pyramids",
     ]
 
-Full_library = Comedy_genre + Horror_genre + Fiction_genre + Manga_genre + Info_genre + History_genre
+Easter_eggs = [
+
+]
+
+Full_library = Comedy_genre + Horror_genre + Fiction_genre + Manga_genre + History_genre
 
 # detail
 No_option_attempts = 0
@@ -73,17 +72,25 @@ logo_6 = str(" \ \--------`-'--------/ /  ")
 Flavor_text_list = [
     "Our library has everything and nothing!", 
     "Look mom! im a peice of flavor text!", 
-    "All roads lead to books", "Now with more paper!", 
+    "All roads lead to books", 
+    "Now with more paper!", 
     "Dont worry user, the library has enough books to feed you for a life time, LIBRARIAN GET ME MORE BOOKS THE KIDS HUNGRY", 
-    "Now without calender errors! i think, does the number count go that high?", 
-    "help me im running out of ideas for flavor text", 
+    "Now without calender errors! I think, does the number count go that high?", 
+    "Help me im running out of ideas for flavor text", 
     "We need money to keep our employees happy", 
     "books made from the very first tree!", 
+    "Did I ever tell you about the time Jeff tried to steal from the library? He got jumped before he could reach the door",
+    "You changed user! you ACTUALLY changed! You learned how to stop being a chud and read!!",
+    "I KNEW THAT DOOR HAD A LOCK ON IT, EVERYBODY KEPT TELLING ME I WAS LOSING MY MIND",
+    "Be quiet while in the library, our librarians hate noise",
+    "Yo does anyone actually read these",
+    "iteleportedbread",
+    "Now with cool easter eggs!",
     ]
 
 
 # welcome message
-print(" ")
+print("<<==================>>")
 print(" ")
 print("Welcome to Book Nook!")
 print(logo_1)
@@ -92,8 +99,11 @@ print(logo_3)
 print(logo_4)
 print(logo_5)
 print(logo_6)
+print(" ")
+print("<<==================>>")
 
 while True:
+    No_option_attempts == 0
     Flavor_text = random.choice(Flavor_text_list)
 # ask user for input
     print(" ")
@@ -105,33 +115,36 @@ while True:
     print(" Show books (show) ")
     print(" Show library (library) ")
     print(" Clear all (reset) ")
+    print(" See found easter eggs (secrets) ")
     print(" Quit (q)" )
     print(" ")
 # flavor text
     print(Flavor_text)
     print(" ")
-    User_input = ((input("enter an option: ").lower()).strip())
+    User_input = ((input("Enter an option: ").lower()).strip())
 
     # inform user (help)
     if User_input == "help":
+        No_option_attempts = 0
         print("well to summarize everything: ")
-        print(" Basics: simply enter any of the options from the menu with your keyboard to perform that action")
-        print(" add: used to add books to the list")
-        print(" remove: used to remove books from the list")
-        print(" count: tells you how many books are in the list")
-        print(" show: shows all current books in the list")
-        print(" library: this will ask another question asking what genre before showing a list of the books in it")
-        print(" reset: this will ask you again for confirmation before removing all books from the list")
-        print(" q: this will end the program")
-        print("this is an early version and a proper library has not been set, so expect it to be a bit odd (but its mostly intact)")
+        print(" Basics: Simply enter any of the options from the menu with your keyboard to perform that action")
+        print(" add: Used to add books to the list")
+        print(" remove: Used to remove books from the list")
+        print(" count: Tells you how many books are in the list")
+        print(" show: Shows all current books in the list")
+        print(" library: This will ask another question asking what genre before showing a list of the books in it")
+        print(" reset: This will ask you again for confirmation before removing all books from the list")
+        print(" secrets: Some prompts may have special responses! Hint: Some are found through flavor text")
+        print(" q: This will end the program")
+        print("This is an early version and a proper library has not been set, so expect it to be a bit odd (but its mostly intact)")
     
     # ask user for book (add)
     if User_input == "add":
         No_option_attempts = 0
-        New_book = ((input("what book would you like to add?: ").lower()).strip())
+        New_book = ((input("What book would you like to add?: ").lower()).strip())
     # check
         if New_book not in Full_library:
-            print("we dont have that book")
+            print("We dont have that book")
     # add to list
         if New_book in Full_library:
             Book_list.append(New_book)
@@ -154,21 +167,24 @@ while True:
     # show amount in list (count)
     elif User_input == "count":
         No_option_attempts = 0
-        print("as of now, you have", len(Book_list), "in your list")
-        if len(Book_list) >= 10:
+        if len(Book_list) < 10:
+            print("as of now, you have", len(Book_list), "in your list")
+        elif len(Book_list) >= 10 and len(Book_list) < 20:
             print("as of now, you have", len(Book_list), "in your list, thats a lot")
-        if len(Book_list) >= 20:
+        elif len(Book_list) >= 20 and len(Book_list) < 30:
             print("as of now you have...", len(Book_list), "which is...why do you need that many??")
-        if len(Book_list) >= 30:
+        elif len(Book_list) >= 30:
             print("ok what could you possibly need", len(Book_list), "books for")
 
 
     # print out list (show)
     elif User_input == "show":
+        No_option_attempts = 0
         print("your list has: ", Book_list)
 
     # show library (library)
     elif User_input == "library":
+        No_option_attempts = 0
         print("(all/comedy/horror/fiction/manga/info/history)")
         Selected_genre = ((input("what genre do you want to look at?: ").lower()).strip())
         if Selected_genre == "all":
@@ -181,13 +197,12 @@ while True:
             print("for fiction, we currently have: ", Fiction_genre)
         if Selected_genre == "manga":
             print("for manga, we currently have: ", Manga_genre)
-        if Selected_genre == "info":
-            print("for info, we currently have: ", Info_genre)
         if Selected_genre == "history":
             print("for for comics, we currently have: ", History_genre)
 
     # Clear inventory (reset)
     elif User_input == "reset":
+        No_option_attempts = 0
         Double_check = ((input("are you sure? this will remove ALL current books in your list (y/n)").lower()).strip())
         if Double_check == "n":
             print("clear has been cancled")
@@ -195,23 +210,50 @@ while True:
             Book_list = []
             print("book list has successfully been reset")
 
+    elif User_input == "secrets":
+        No_option_attempts == 0
+        print("Secrets found: ", Easter_eggs)
+
+    elif User_input == "iteleportedbread":
+        No_option_attempts = 0
+        print(" w h a t ")
+        ResponseTf2EG = input().lower()
+        if ResponseTf2EG == "you told me to":
+            print("how. much.")
+            ResponseTf2EGtwo = input().lower()
+            if ResponseTf2EGtwo == "i have done nothing but teleport bread for the past three days":
+                print("WHERE!?!? WHERE HAVE YOU BEEN SENDING IT!?!?!?!?")
+                Easter_eggs.append(User_input)
+
+    elif User_input == "tree":
+        No_option_attempts == 0
+        print("theres a man here")
+        Easter_eggs.append(User_input)
 
     # incorrect option
     else:
         No_option_attempts += 1
-        print("thats not an option")
+        if No_option_attempts >= 1 and No_option_attempts < 5:
+            print("<<==================>>")
+            print("thats not an option")
     # incorrect option special text
-        if No_option_attempts >= 5:
+        elif No_option_attempts >= 5 and No_option_attempts < 7:
+            print("<<==================>>")
             print("still not an option")
-        if No_option_attempts >= 7:
+        elif No_option_attempts >= 7 and No_option_attempts < 9:
+            print("<<==================>>")
             print("thats uh, still not an option")
-        if No_option_attempts >= 9:
+        elif No_option_attempts >= 9 and No_option_attempts < 11:
+            print("<<==================>>")
             print("sir", User_input, "isnt on the menu")
-        if No_option_attempts >= 11:
+        elif No_option_attempts >= 11 and No_option_attempts < 13:
+            print("<<==================>>")
             print("hello?? are you reading this??? thats NOT and option")
-        if No_option_attempts >= 13:
+        elif No_option_attempts >= 13 and No_option_attempts < 15:
+            print("<<==================>>")
             print("THAT ISNT A THING, PICK SOMETHING FROM THE LIST BELOW")
-        if No_option_attempts >= 15:
+        elif No_option_attempts >= 15:
+            print("<<==================>>")
             print("please stop")
 
     # break loop
