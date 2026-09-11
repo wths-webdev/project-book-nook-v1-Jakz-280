@@ -89,34 +89,37 @@ Flavor_text_list = [
     ]
 
 
-# welcome message
-print("<<==================>>")
-print(" ")
-print("Welcome to Book Nook!")
-print(logo_1)
-print(logo_2)
-print(logo_3)
-print(logo_4)
-print(logo_5)
-print(logo_6)
-print(" ")
-print("<<==================>>")
+
+
 
 while True:
-    No_option_attempts == 0
+        # reset info
+    No_option_attempts = 0
     Flavor_text = random.choice(Flavor_text_list)
-# ask user for input
+        # welcome message
+    print("<<=============================>>")
+    print(" ")
+    print("Welcome to Book Nook!")
+    print(logo_1)
+    print(logo_2)
+    print(logo_3)
+    print(logo_4)
+    print(logo_5)
+    print(logo_6)
+    print(" ")
+    print("<<=============================>>")
+        # ask user for input
     print(" ")
     print("Menu:") 
-    print(" Type help and hit enter for more info (help)" )
-    print(" Add book (add)" )
-    print(" Remove book (remove) ")
-    print(" Show count (count) ")
-    print(" Show books (show) ")
-    print(" Show library (library) ")
-    print(" Clear all (reset) ")
-    print(" See found easter eggs (secrets) ")
-    print(" Quit (q)" )
+    print(" ▻ Type help and hit enter for more info (help)" )
+    print(" ▻ Add book (add)" )
+    print(" ▻ Remove book (remove) ")
+    print(" ▻ Show count (count) ")
+    print(" ▻ Show books (show) ")
+    print(" ▻ Show library (library) ")
+    print(" ▻ Clear all (reset) ")
+    print(" ▻ See found easter eggs (secrets) ")
+    print(" ▻ Quit (q)" )
     print(" ")
 # flavor text
     print(Flavor_text)
@@ -128,14 +131,14 @@ while True:
         No_option_attempts = 0
         print("well to summarize everything: ")
         print(" Basics: Simply enter any of the options from the menu with your keyboard to perform that action")
-        print(" add: Used to add books to the list")
-        print(" remove: Used to remove books from the list")
-        print(" count: Tells you how many books are in the list")
-        print(" show: Shows all current books in the list")
-        print(" library: This will ask another question asking what genre before showing a list of the books in it")
-        print(" reset: This will ask you again for confirmation before removing all books from the list")
-        print(" secrets: Some prompts may have special responses! Hint: Some are found through flavor text")
-        print(" q: This will end the program")
+        print(" ▸ add: Used to add books to the list")
+        print(" ▸ remove: Used to remove books from the list")
+        print(" ▸ count: Tells you how many books are in the list")
+        print(" ▸ show: Shows all current books in the list")
+        print(" ▸ library: This will ask another question asking what genre before showing a list of the books in it")
+        print(" ▸ reset: This will ask you again for confirmation before removing all books from the list")
+        print(" ▸ secrets: Some prompts may have special responses! Hint: Some are found through flavor text")
+        print(" ▸ q: This will end the program")
         print("This is an early version and a proper library has not been set, so expect it to be a bit odd (but its mostly intact)")
     
     # ask user for book (add)
@@ -234,26 +237,26 @@ while True:
     else:
         No_option_attempts += 1
         if No_option_attempts >= 1 and No_option_attempts < 5:
-            print("<<==================>>")
+            print("<<=============================>>")
             print("thats not an option")
     # incorrect option special text
         elif No_option_attempts >= 5 and No_option_attempts < 7:
-            print("<<==================>>")
+            print("<<=============================>>")
             print("still not an option")
         elif No_option_attempts >= 7 and No_option_attempts < 9:
-            print("<<==================>>")
+            print("<<=============================>>")
             print("thats uh, still not an option")
         elif No_option_attempts >= 9 and No_option_attempts < 11:
-            print("<<==================>>")
+            print("<<=============================>>")
             print("sir", User_input, "isnt on the menu")
         elif No_option_attempts >= 11 and No_option_attempts < 13:
-            print("<<==================>>")
+            print("<<=============================>>")
             print("hello?? are you reading this??? thats NOT and option")
         elif No_option_attempts >= 13 and No_option_attempts < 15:
-            print("<<==================>>")
+            print("<<=============================>>")
             print("THAT ISNT A THING, PICK SOMETHING FROM THE LIST BELOW")
         elif No_option_attempts >= 15:
-            print("<<==================>>")
+            print("<<=============================>>")
             print("please stop")
 
     # break loop
